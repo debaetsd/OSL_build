@@ -19,7 +19,9 @@ if not exist boost git clone -j8 --recurse-submodules --depth 1 --branch boost-1
 pushd boost
 if not exist builddir mkdir builddir
 call bootstrap.bat
+if NOT ["%errorlevel%"]==["0"] pause
 call .\b2.exe --prefix=%module% debug release link=shared threading=multi architecture=x86 address-model=64 toolset=msvc-14.2 runtime-link=shared --build-dir=builddir --build-type=complete stage install --with-filesystem --with-system --with-thread --with-regex
+if NOT ["%errorlevel%"]==["0"] pause
 popd
 rem copy boost dlls to bin folder
 set libDir=%outputDir%/lib

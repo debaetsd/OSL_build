@@ -28,6 +28,7 @@ if not exist %cmBuild% mkdir %cmBuild%
 pushd %cmBuild%
 
 cmake -G %compiler% -A %arch% %invokeDir%  -DCMAKE_DEBUG_POSTFIX=d -DCMAKE_INSTALL_PREFIX=%module% -DCMAKE_PREFIX_PATH=%module% %cmakeArgs%
+if NOT ["%errorlevel%"]==["0"] pause
 
 if not exist ../../%root%.releaseOnly cmake --build . --target install -j 8 --config debug
 cmake --build . --target install -j 8 --config release
