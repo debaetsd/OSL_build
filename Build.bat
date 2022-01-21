@@ -33,6 +33,7 @@ set libs=%libs%;winflexbison
 set libs=%libs%;pugixml
 set libs=%libs%;LLVM
 set libs=%libs%;libjpeg-turbo
+set libs=%libs%;libpng
 set libs=%libs%;libtiff
 set libs=%libs%;openexr
 set libs=%libs%;pybind11
