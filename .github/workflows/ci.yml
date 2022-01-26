@@ -18,4 +18,5 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Buidling...
-        run: Build.bat
+        shell: pwsh
+        run: ./Build.bat
