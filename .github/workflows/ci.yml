@@ -20,3 +20,8 @@ jobs:
       - name: Buidling...
         shell: pwsh
         run: ./Build.bat
+        
+      - uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: __InstalledExternals/*
