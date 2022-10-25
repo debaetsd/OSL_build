@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Buidling...
+        shell: pwsh
+        run: ./Build.bat
+        
+      - uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: __InstalledExternals/*
