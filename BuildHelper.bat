@@ -31,7 +31,9 @@ cmake -G %compiler% -A %arch% %invokeDir%  -DCMAKE_DEBUG_POSTFIX=d -DCMAKE_INSTA
 if NOT ["%errorlevel%"]==["0"] pause
 
 if not exist ../../%root%.releaseOnly cmake --build . --target install -j 8 --config debug
+if NOT ["%errorlevel%"]==["0"] pause
 cmake --build . --target install -j 8 --config release
+if NOT ["%errorlevel%"]==["0"] pause
 
 %postBuild%
 
